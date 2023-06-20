@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/persons`,
+    require('./personsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/persons/:id`,
+    require('./personsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/persons/import`,
+    require('./personsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/persons`,
+    require('./personsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/persons/autocomplete`,
+    require('./personsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/persons`,
+    require('./personsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/persons/:id`,
+    require('./personsFind').default,
+  );
+};

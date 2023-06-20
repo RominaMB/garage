@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/categories`,
+    require('./categoriesCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/categories/:id`,
+    require('./categoriesUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/categories/import`,
+    require('./categoriesImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/categories`,
+    require('./categoriesDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/categories/autocomplete`,
+    require('./categoriesAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/categories`,
+    require('./categoriesList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/categories/:id`,
+    require('./categoriesFind').default,
+  );
+};
